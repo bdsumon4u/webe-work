@@ -15,7 +15,7 @@ $database = get_database();
 
 $table = $database[$tableName] ?? [];
 
-if (is_null($index)) {
+if (empty($index)) {
     $table[] = $data;
 
     $_SESSION['success'] = "Successfully stored book";
