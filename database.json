@@ -1,16 +1,25 @@
 {
-	"books": [
-		{
-			"title": "Laravel Book",
-			"year": "2023",
-			"author": "Taylor Otwell",
-			"publisher": "Hotash Pub."
-		},
-		{
-			"title": "GodFather",
-			"year": "2014",
-			"author": "GrandFather",
-			"publisher": "Father Pub."
-		}
-	]
+  "book": {
+    "hotash": {
+      "_extra": [],
+      "isbn": "hotash",
+      "title": "Hotash Ahmed",
+      "author": "Hotash",
+      "available": 12
+    },
+    "hotsbn": {
+      "_extra": [],
+      "isbn": "hotsbn",
+      "title": "Hotash",
+      "author": "Hotash",
+      "available": 12
+    },
+    "ibns": {
+      "_extra": [],
+      "isbn": "ibns",
+      "title": "Good Title",
+      "author": "Sumon",
+      "available": 89
+    }
+  }
 }

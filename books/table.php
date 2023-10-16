@@ -1,4 +1,7 @@
-<?php $books = get_table('books') ?>
+<?php
+require_once 'models/Book.php';
+$books = Book::all();
+?>
 <div class="flex flex-col bg-white border rounded-lg md:col-span-3">
     <div class="flex flex-col items-center justify-between gap-4 p-3 text-center border-b border-slate-100 sm:flex-row sm:text-left">
         <div>
@@ -20,16 +23,16 @@
                     <?php if (count($books)) : ?>
                         <tr class="border-b-2 border-slate-100">
                             <th class="min-w-[180px] py-2 pr-3 text-left text-sm font-semibold uppercase tracking-wider text-slate-700">
-                                Title
+                                ISBN
                             </th>
                             <th class="min-w-[180px] px-3 py-2 text-left text-sm font-semibold uppercase tracking-wider text-slate-700">
-                                Year
+                                Title
                             </th>
                             <th class="min-w-[180px] px-3 py-2 text-left text-sm font-semibold uppercase tracking-wider text-slate-700">
                                 Author
                             </th>
                             <th class="min-w-[180px] px-3 py-2 text-left text-sm font-semibold uppercase tracking-wider text-slate-700">
-                                Publisher
+                                Available
                             </th>
                             <th class="min-w-[100px] py-2 pl-3 text-right text-sm font-semibold uppercase tracking-wider text-slate-700">
                                 Actions
@@ -47,30 +50,29 @@
 
                 <!-- Table Body -->
                 <tbody>
-                    <?php $index = 0 ?>
-                    <?php foreach ($books as $book) : ?>
+                    <?php foreach ($books as $key => $book) : ?>
                         <tr class="border-b border-slate-100">
                             <td class="py-2 pr-3 text-left text-slate-600">
-                                <?= $book['title'] ?>
+                                <?= $book->getIsbn() ?>
                             </td>
                             <td class="p-2">
-                                <?= $book['year'] ?>
+                                <?= $book->getTitle() ?>
                             </td>
                             <td class="p-2 font-medium text-slate-600">
-                                <?= $book['author'] ?>
+                                <?= $book->getAuthor() ?>
                             </td>
                             <td class="p-2 text-left">
-                                <?= $book['publisher'] ?>
+                                <?= $book->getAvailable() ?>
                             </td>
                             <td class="py-2 pl-3 font-medium text-right">
                                 <form action="/delete.php" method="POST">
-                                    <a href="/books/edit.php?index=<?= $index ?>" class="group inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-800 hover:border-violet-300 hover:text-violet-800 active:border-slate-200">
+                                    <a href="/books/edit.php?isbn=<?= $book->getIsbn() ?>" class="group inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-800 hover:border-violet-300 hover:text-violet-800 active:border-slate-200">
                                         <span>Edit</span>
                                         <svg class="hi-mini hi-arrow-right inline-block h-5 w-5 text-slate-400 group-hover:text-violet-600 group-active:translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                             <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path>
                                         </svg>
                                     </a>
-                                    <input type="hidden" name="index" value="<?= $index ?>">
+                                    <input type="hidden" name="isbn" value="<?= $book->getIsbn() ?>">
                                     <button type="submit" class="group inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-800 hover:border-violet-300 hover:text-violet-800 active:border-slate-200">
                                         <span class="hover:text-red-600">Delete</span>
                                         <svg class="hi-mini hi-arrow-right inline-block h-5 w-5 text-red-600 group-active:translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -80,7 +82,6 @@
                                 </form>
                             </td>
                         </tr>
-                    <?php $index++ ?>
                     <?php endforeach; ?>
                 </tbody>
                 <!-- END Table Body -->

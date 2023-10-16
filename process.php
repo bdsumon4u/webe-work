@@ -1,32 +1,26 @@
 <?php
 
 require_once 'functions.php';
+require_once 'models/Book.php';
 
 if (! isset($_POST)) {
     header('Location dashboard.php');
 }
 
 $data = $_POST;
-$index = $data['edit'];
+$isbn = $data['edit'];
 unset($data['edit']);
 
-$database = get_database();
-
-$table = $database['books'] ?? [];
-
-if (empty($index)) {
-    $table[] = $data;
+if (empty($isbn)) {
+    Book::create($data);
 
     $_SESSION['success'] = "Successfully stored book";
 } else {
-    $title = $table[$index]['title'];
-    $table[$index] = $data;
+    $book = Book::find($isbn);
+    $title = $book->getTitle();
+    $book->update($data);
 
     $_SESSION['success'] = "Successfully updated '$title'";
 }
-
-$database['books'] = array_values($table);
-
-set_database($database);
 
 header('Location: dashboard.php');
