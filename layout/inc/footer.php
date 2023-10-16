@@ -1,7 +1,7 @@
 <footer id="page-footer" class="flex items-center flex-none py-5">
     <div class="container flex flex-col px-4 mx-auto text-sm text-center md:flex-row md:justify-between md:text-left lg:px-8 xl:max-w-7xl">
         <div class="pt-4 pb-1 md:pb-4">
-            <span class="font-medium">HotashList</span>
+            <span class="font-medium">BookList</span>
             ©
         </div>
         <div class="inline-flex items-center justify-center pt-1 pb-4 md:pt-4">

@@ -1,7 +1,6 @@
 <div class="flex flex-col justify-center min-h-full px-6 py-12 lg:px-8">
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-lg">
         <form class="space-y-6" action="/process.php" method="POST">
-            <input type="hidden" name="table" value="books">
             <h3 class="text-2xl font-semibold text-center border font-roboto-mono small-caps">Book Information</h3>
             <div class="grid grid-cols-4 gap-x-3">
                 <div class="col-span-3">

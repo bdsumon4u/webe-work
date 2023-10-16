@@ -8,12 +8,11 @@ if (! isset($_POST)) {
 
 $data = $_POST;
 $index = $data['edit'];
-$tableName = $data['table'];
-unset($data['table'], $data['edit']);
+unset($data['edit']);
 
 $database = get_database();
 
-$table = $database[$tableName] ?? [];
+$table = $database['books'] ?? [];
 
 if (empty($index)) {
     $table[] = $data;
@@ -26,7 +25,7 @@ if (empty($index)) {
     $_SESSION['success'] = "Successfully updated '$title'";
 }
 
-$database[$tableName] = array_values($table);
+$database['books'] = array_values($table);
 
 set_database($database);
 

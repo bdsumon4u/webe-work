@@ -1,8 +1,8 @@
 <?php $books = get_table('books') ?>
 <div class="flex flex-col bg-white border rounded-lg md:col-span-3">
-    <div class="flex flex-col items-center justify-between gap-4 p-5 text-center border-b border-slate-100 sm:flex-row sm:text-left">
+    <div class="flex flex-col items-center justify-between gap-4 p-3 text-center border-b border-slate-100 sm:flex-row sm:text-left">
         <div>
-            <h2 class="mb-0.5 font-semibold">Book List&nbsp;:&nbsp;<span>[<?= count($books) ?>]</span></h2>
+            <h2 class="mb-0.5 font-semibold">Book List</h2>
         </div>
         <div>
             <a href="/books/add.php" class="inline-flex items-center justify-center px-3 py-2 space-x-2 text-sm font-semibold leading-5 bg-white border rounded-lg border-slate-200 text-slate-800 hover:border-violet-300 hover:text-violet-800 active:border-slate-200">
@@ -19,7 +19,7 @@
                 <thead>
                     <?php if (count($books)) : ?>
                         <tr class="border-b-2 border-slate-100">
-                            <th class="min-w-[180px] py-3 pr-3 text-left text-sm font-semibold uppercase tracking-wider text-slate-700">
+                            <th class="min-w-[180px] py-2 pr-3 text-left text-sm font-semibold uppercase tracking-wider text-slate-700">
                                 Title
                             </th>
                             <th class="min-w-[180px] px-3 py-2 text-left text-sm font-semibold uppercase tracking-wider text-slate-700">
@@ -50,19 +50,19 @@
                     <?php $index = 0 ?>
                     <?php foreach ($books as $book) : ?>
                         <tr class="border-b border-slate-100">
-                            <td class="py-3 pr-3 text-left text-slate-600">
+                            <td class="py-2 pr-3 text-left text-slate-600">
                                 <?= $book['title'] ?>
                             </td>
-                            <td class="p-3">
+                            <td class="p-2">
                                 <?= $book['year'] ?>
                             </td>
-                            <td class="p-3 font-medium text-slate-600">
+                            <td class="p-2 font-medium text-slate-600">
                                 <?= $book['author'] ?>
                             </td>
-                            <td class="p-3 text-left">
+                            <td class="p-2 text-left">
                                 <?= $book['publisher'] ?>
                             </td>
-                            <td class="py-3 pl-3 font-medium text-right">
+                            <td class="py-2 pl-3 font-medium text-right">
                                 <form action="/delete.php" method="POST">
                                     <a href="/books/edit.php?index=<?= $index ?>" class="group inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-800 hover:border-violet-300 hover:text-violet-800 active:border-slate-200">
                                         <span>Edit</span>
@@ -70,7 +70,6 @@
                                             <path fill-rule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clip-rule="evenodd"></path>
                                         </svg>
                                     </a>
-                                    <input type="hidden" name="table" value="books">
                                     <input type="hidden" name="index" value="<?= $index ?>">
                                     <button type="submit" class="group inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-800 hover:border-violet-300 hover:text-violet-800 active:border-slate-200">
                                         <span class="hover:text-red-600">Delete</span>

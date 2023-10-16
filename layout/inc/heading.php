@@ -14,9 +14,6 @@
             <a href="/books/add.php" class="inline-flex items-center justify-center px-3 py-2 space-x-1 text-sm font-semibold leading-5 text-white border rounded-lg border-violet-700 bg-violet-700 hover:border-violet-600 hover:bg-violet-600 hover:text-white focus:ring focus:ring-violet-400 focus:ring-opacity-50 active:border-violet-700 active:bg-violet-700">
                 <span>New Book</span>
             </a>
-            <a href="/movies/add.php" class="inline-flex items-center justify-center px-3 py-2 space-x-1 text-sm font-semibold leading-5 text-white border rounded-lg border-violet-700 bg-violet-700 hover:border-violet-600 hover:bg-violet-600 hover:text-white focus:ring focus:ring-violet-400 focus:ring-opacity-50 active:border-violet-700 active:bg-violet-700">
-                <span>New Movie</span>
-            </a>
         </div>
     </div>
     <hr class="mt-6 lg:mt-8" />
