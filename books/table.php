@@ -65,7 +65,7 @@ $books = Book::all();
                                 <?= $book->getAvailable() ?>
                             </td>
                             <td class="py-2 pl-3 font-medium text-right">
-                                <form action="/delete.php" method="POST">
+                                <form onsubmit="return confirm('Are you sure?');" action="/delete.php" method="POST">
                                     <a href="/books/edit.php?isbn=<?= $book->getIsbn() ?>" class="group inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-800 hover:border-violet-300 hover:text-violet-800 active:border-slate-200">
                                         <span>Edit</span>
                                         <svg class="hi-mini hi-arrow-right inline-block h-5 w-5 text-slate-400 group-hover:text-violet-600 group-active:translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
